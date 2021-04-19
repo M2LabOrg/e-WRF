@@ -8,9 +8,9 @@
 </table>
 
 
-# e-WRF: Weather Research and Forecasting model for educational purposes
+# e-WRF: Educational purposes
 
-This page contains scripts for installing WRF for educational purposes.
+This page contains scripts for installing WRF for educational purposes. WRF stands for the "Weather Research and Forecasting" model, developed by NCAR.
 
 > Contents developed by: 
 >   > **Michel Mesquita**, Ph.D. | M2Lab.org, YCOMM, michel@m2lab.org
