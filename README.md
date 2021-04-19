@@ -8,9 +8,7 @@
 </table>
 
 
-
-# ewrf
-e-WRF: Weather Research and Forecasting model for educational purposes
+# e-WRF: Weather Research and Forecasting model for educational purposes
 
 This page contains scripts for installing WRF for educational purposes.
 
