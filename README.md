@@ -12,9 +12,15 @@
 
 This page contains scripts for installing WRF for educational purposes. WRF stands for the "Weather Research and Forecasting" model, developed by NCAR (see copyright information below).
 
-## WRF Copyright statement
+## Input data
+The [input data](indata/) used here are based on the FNL model: NCEP FNL Operational Model Global Tropospheric Analyses. Only four files are used as examples to be ingested in WRF (See reference below).
+
+### WRF Copyright statement
 Copyright (c) 2017 the University Corporation for Atmospheric Research (“UCAR”). [All rights reserved](https://ral.ucar.edu/sites/default/files/public/projects/ncar-docker-wrf/ucar-bsd-3-clause-license.pdf).
 Developed at the Research Applications Laboratory at National Center for Atmospheric Research (“NCAR”).
+
+### FNL Reference
+National Centers for Environmental Prediction/National Weather Service/NOAA/U.S. Department of Commerce, 2000: NCEP FNL Operational Model Global Tropospheric Analyses, continuing from July 1999. Research Data Archive at the National Center for Atmospheric Research, Computational and Information Systems Laboratory, Boulder, CO. [Available online at https://doi.org/10.5065/D6M043C6.] Accessed† 15 Apr 2021.
 
 > Contents developed by: 
 >   > **Michel Mesquita**, Ph.D. | M2Lab.org, YCOMM, michel@m2lab.org
