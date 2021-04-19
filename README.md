@@ -13,7 +13,7 @@
 This page contains scripts for installing WRF for educational purposes. WRF stands for the "Weather Research and Forecasting" model, developed by NCAR (see copyright information below).
 
 ## WRF Copyright statement
-Copyright (c) 2017 the University Corporation for Atmospheric Research (“UCAR”). (All rights reserved)[https://ral.ucar.edu/sites/default/files/public/projects/ncar-docker-wrf/ucar-bsd-3-clause-license.pdf].
+Copyright (c) 2017 the University Corporation for Atmospheric Research (“UCAR”). [All rights reserved](https://ral.ucar.edu/sites/default/files/public/projects/ncar-docker-wrf/ucar-bsd-3-clause-license.pdf).
 Developed at the Research Applications Laboratory at National Center for Atmospheric Research (“NCAR”).
 
 > Contents developed by: 
