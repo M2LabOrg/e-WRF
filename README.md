@@ -12,4 +12,8 @@
 # ewrf
 e-WRF: Weather Research and Forecasting model for educational purposes
 
-# 
+This page contains scripts for installing WRF for educational purposes.
+
+> Contents developed by: 
+>   > **Michel Mesquita**, Ph.D. | M2Lab.org, YCOMM, michel@m2lab.org
+>   > **Morgan Yarker**, Ph.D. | Yarker Consulting, YCOMM
