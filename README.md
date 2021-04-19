@@ -18,4 +18,5 @@ Developed at the Research Applications Laboratory at National Center for Atmosph
 
 > Contents developed by: 
 >   > **Michel Mesquita**, Ph.D. | M2Lab.org, YCOMM, michel@m2lab.org
+>   > 
 >   > **Morgan Yarker**, Ph.D. | Yarker Consulting, YCOMM
