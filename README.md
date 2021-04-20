@@ -15,6 +15,9 @@ This page contains scripts for installing WRF for educational purposes. WRF stan
 ## Input data
 The [input data](indata/) used here are based on the FNL model: NCEP FNL Operational Model Global Tropospheric Analyses. Only four files are used as examples to be ingested in WRF (See reference below).
 
+## Installation files
+The [installation files](installfiles/) are used as part of our educational lessons. Please, contact us for more information on how to used them.
+
 ### WRF Copyright statement
 Copyright (c) 2017 the University Corporation for Atmospheric Research (“UCAR”). [All rights reserved](https://ral.ucar.edu/sites/default/files/public/projects/ncar-docker-wrf/ucar-bsd-3-clause-license.pdf).
 Developed at the Research Applications Laboratory at National Center for Atmospheric Research (“NCAR”).
