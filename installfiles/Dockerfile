@@ -83,8 +83,8 @@ RUN (cd /WRF/indata && curl -LJO https://github.com/M2LabOrg/e-WRF/blob/9fec54d2
 # Script for downloading other FNL data
 RUN (cd /WRF/indata && curl -LJO https://github.com/M2LabOrg/e-WRF/blob/9fec54d2fcc2acdbd59083f20323a05ad3c0139c/indata/get_fnl_data.csh)
 # Namelists for testing
-RUN (cd /WRF/indata && curl -LJO https://github.com/M2LabOrg/e-WRF/blob/c6228618b2b719a97fdc9379a0d95af3e4a974d0/indata/namelist.input.e-wrf)
-RUN (cd /WRF/indata && curl -LJO https://github.com/M2LabOrg/e-WRF/blob/c6228618b2b719a97fdc9379a0d95af3e4a974d0/indata/namelist.wps.e-wrf)
+RUN (cd /WRF/indata && curl -LJO https://raw.githubusercontent.com/M2LabOrg/e-WRF/main/indata/namelist.input.e-wrf)
+RUN (cd /WRF/indata && curl -LJO https://raw.githubusercontent.com/M2LabOrg/e-WRF/main/indata/namelist.wps.e-wrf)
 #
 # NCL
 #
