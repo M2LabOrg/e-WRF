@@ -33,11 +33,11 @@
  time_step_fract_num                 = 0,
  time_step_fract_den                 = 1,
  max_dom                             = 1,
- e_we                                = 74,    112,   94,
- e_sn                                = 61,    97,    91,
+ e_we                                = 75,    112,   94,
+ e_sn                                = 70,    97,    91,
  e_vert                              = 35,    30,    30,
  p_top_requested                     = 5000,
- num_metgrid_levels                  = 32,
+ num_metgrid_levels                  = 34,
  num_metgrid_soil_levels             = 4,
  dx                                  = 30000, 10000,  3333.33,
  dy                                  = 30000, 10000,  3333.33,
@@ -58,7 +58,7 @@
  cudt                                = 5,     5,     5,
  icloud                              = 1,
  num_soil_layers                     = 4,
- num_land_cat                        = 24,
+ num_land_cat                        = 21,
  sf_urban_physics                    = 0,     0,     0,
  /
 
