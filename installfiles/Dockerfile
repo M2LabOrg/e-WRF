@@ -76,10 +76,10 @@ WORKDIR /WRF
 #
 RUN curl -SL http://www2.mmm.ucar.edu/wrf/src/wps_files/geog_low_res_mandatory.tar.gz | tar -xzC /WRF/WPS_GEOG
 # input FNL data for testing
-RUN (cd /WRF/indata && curl -LJO https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210414_06_00.grib2?raw=true)
-RUN (cd /WRF/indata && curl -LJO https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210414_12_00.grib2?raw=true) 
-RUN (cd /WRF/indata && curl -LJO https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210414_18_00.grib2?raw=true) 
-RUN (cd /WRF/indata && curl -LJO https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210415_00_00.grib2?raw=true)
+RUN (cd /WRF/indata && curl -LJ https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210414_06_00.grib2?raw=true --output fnl_20210414_06_00.grib2)
+RUN (cd /WRF/indata && curl -LJ https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210414_12_00.grib2?raw=true --output fnl_20210414_12_00.grib2) 
+RUN (cd /WRF/indata && curl -LJ https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210414_18_00.grib2?raw=true --output fnl_20210414_18_00.grib2) 
+RUN (cd /WRF/indata && curl -LJ https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210415_00_00.grib2?raw=true --output fnl_20210415_00_00.grib2)
 # Script for downloading other FNL data
 RUN (cd /WRF/indata && curl -LJO https://github.com/M2LabOrg/e-WRF/blob/9fec54d2fcc2acdbd59083f20323a05ad3c0139c/indata/get_fnl_data.csh)
 # Namelists for testing
