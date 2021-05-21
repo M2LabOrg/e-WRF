@@ -25,6 +25,9 @@ Developed at the Research Applications Laboratory at National Center for Atmosph
 ### FNL Reference
 National Centers for Environmental Prediction/National Weather Service/NOAA/U.S. Department of Commerce, 2000: NCEP FNL Operational Model Global Tropospheric Analyses, continuing from July 1999. Research Data Archive at the National Center for Atmospheric Research, Computational and Information Systems Laboratory, Boulder, CO. [Available online at https://doi.org/10.5065/D6M043C6.] Accessed† 15 Apr 2021.
 
+### WRF-Python
+One can use plotgrids.ncl to plot the WRF domains. However, the new wrf-python package allows you to read WRF files and plot variables from them. The folder [WRF_Python](WRF_Python/) contains an example script on how you can do that. There, you will also find a wrfout file for you to test, as well as a plot of the domain.
+
 > Contents developed by: 
 >   > **Michel Mesquita**, Ph.D. | M2Lab.org, YCOMM, michel@m2lab.org
 >   > 
