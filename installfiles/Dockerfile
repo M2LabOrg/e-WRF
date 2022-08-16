@@ -2,9 +2,9 @@
 FROM centos:7
 LABEL maintainer="Michel Mesquita michel@m2lab.org"
 #
-ENV WRF_VERSION 4.2
-ENV WPS_VERSION 4.2
-ENV NML_VERSION 4.2
+ENV WRF_VERSION 4.3.1
+ENV WPS_VERSION 4.3.1
+ENV NML_VERSION 4.3.1
 # To use yum with the latest Centos, we need this line. Otherwise, use Centos 7
 # RUN dnf --disablerepo '*' --enablerepo=extras swap centos-linux-repos centos-stream-repos -y \
 #    && dnf distro-sync -y

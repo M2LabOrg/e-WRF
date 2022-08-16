@@ -1,6 +1,6 @@
  &time_control
  run_days                            = 0,
- run_hours                           = 0,
+ run_hours                           = 1,
  run_minutes                         = 0,
  run_seconds                         = 0,
  start_year                          = 2021, 2021, 2021,
@@ -11,8 +11,8 @@
  start_second                        = 00,   00,   00,
  end_year                            = 2021, 2021, 2021,
  end_month                           = 04,   04,   04,
- end_day                             = 14,   14,   14,
- end_hour                            = 07,   07,   07,
+ end_day                             = 15,   15,   15,
+ end_hour                            = 00,   00,   00,
  end_minute                          = 00,   00,   00,
  end_second                          = 00,   00,   00,
  interval_seconds                    = 21600
@@ -20,7 +20,7 @@
  history_interval                    = 180,  60,   60,
  frames_per_outfile                  = 1, 1000, 1000,
  restart                             = .false.,
- restart_interval                    = 720,
+ restart_interval                    = 21600,
  io_form_history                     = 2
  io_form_restart                     = 2
  io_form_input                       = 2
