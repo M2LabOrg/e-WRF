@@ -32,4 +32,5 @@ One can use plotgrids.ncl to plot the WRF domains. However, the new wrf-python p
 >   > **Michel Mesquita**, PhD | m2lab.io, YCOMM, michel@m2lab.org
 >   > 
 >   > **Morgan Yarker**, PhD | Yarker Consulting, YCOMM
+>   >
 >   > **Michelle Serino Steinmacher**, MSc | Yarker Consulting
