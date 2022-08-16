@@ -11,8 +11,8 @@
  start_second                        = 00,   00,   00,
  end_year                            = 2021, 2021, 2021,
  end_month                           = 04,   04,   04,
- end_day                             = 15,   15,   15,
- end_hour                            = 00,   00,   00,
+ end_day                             = 14,   14,   14,
+ end_hour                            = 07,   07,   07,
  end_minute                          = 00,   00,   00,
  end_second                          = 00,   00,   00,
  interval_seconds                    = 21600

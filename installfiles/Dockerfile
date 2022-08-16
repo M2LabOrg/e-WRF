@@ -1,22 +1,25 @@
 #
 FROM centos:7
-MAINTAINER Michel Mesquita <michel@m2lab.org>
+LABEL maintainer="Michel Mesquita michel@m2lab.org"
 #
 ENV WRF_VERSION 4.2
 ENV WPS_VERSION 4.2
 ENV NML_VERSION 4.2
+# To use yum with the latest Centos, we need this line. Otherwise, use Centos 7
+# RUN dnf --disablerepo '*' --enablerepo=extras swap centos-linux-repos centos-stream-repos -y \
+#    && dnf distro-sync -y
 #
 # Set up base OS environment
-RUN curl -SL https://ral.ucar.edu/sites/default/files/public/projects/ncar-docker-wrf/ucar-bsd-3-clause-license.pdf > /UCAR-BSD-3-Clause-License.pdf
+RUN curl -SL https://github.com/NCAR/container-wrf/raw/dd94dd90d01459e483bf032103e7a56761bae025/UCAR-BSD-3-Clause-License.pdf > /UCAR-BSD-3-Clause-License.pdf
 #
 RUN yum -y update
 
+# Editors
+RUN yum -y install nano gedit
+
 # Centos and Python
 RUN yum -y install centos-release-scl \
- && yum -y install --setopt=tsflags=nodocs rh-python36
-
-# Editor
-RUN yum -y install nano
+ && yum -y install --setopt=tsflags=nodocs rh-python38
 
 # Other libraries
 RUN yum -y install file gcc gcc-gfortran gcc-c++ glibc.i686 libgcc.i686 libpng-devel jasper \
@@ -66,30 +69,16 @@ RUN mkdir /WRF/.ssh ; echo "StrictHostKeyChecking no" > /WRF/.ssh/config
 COPY default-mca-params.conf /WRF/.openmpi/mca-params.conf
 RUN mkdir -p /WRF/.openmpi
 RUN chown -R wrfuser:wrf /WRF/
+#
+# Copy runme file here
+COPY runme_getdata.sh /WRF/.
+RUN chmod 777 /WRF/runme_getdata.sh
 # RUN echo "root    ALL=(ALL)     ALL" >> /etc/sudoers
 #
 #
 # all root steps completed above, now below as regular userID wrfuser
 USER wrfuser
 WORKDIR /WRF
-#
-#
-RUN curl -SL http://www2.mmm.ucar.edu/wrf/src/wps_files/geog_low_res_mandatory.tar.gz | tar -xzC /WRF/WPS_GEOG
-# input FNL data for testing
-RUN (cd /WRF/indata && curl -LJ https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210414_06_00.grib2?raw=true --output fnl_20210414_06_00.grib2)
-RUN (cd /WRF/indata && curl -LJ https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210414_12_00.grib2?raw=true --output fnl_20210414_12_00.grib2) 
-RUN (cd /WRF/indata && curl -LJ https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210414_18_00.grib2?raw=true --output fnl_20210414_18_00.grib2) 
-RUN (cd /WRF/indata && curl -LJ https://github.com/M2LabOrg/e-WRF/blob/main/indata/fnl_20210415_00_00.grib2?raw=true --output fnl_20210415_00_00.grib2)
-# Script for downloading other FNL data
-RUN (cd /WRF/indata && curl -LJO https://github.com/M2LabOrg/e-WRF/blob/9fec54d2fcc2acdbd59083f20323a05ad3c0139c/indata/get_fnl_data.csh)
-# Namelists for testing
-RUN (cd /WRF/indata && curl -LJO https://raw.githubusercontent.com/M2LabOrg/e-WRF/main/indata/namelist.input.e-wrf)
-RUN (cd /WRF/indata && curl -LJO https://raw.githubusercontent.com/M2LabOrg/e-WRF/main/indata/namelist.wps.e-wrf)
-#
-# NCL
-#
-RUN curl -SL https://ral.ucar.edu/sites/default/files/public/projects/ncar-docker-wrf/nclncarg-6.3.0.linuxcentos7.0x8664nodapgcc482.tar.gz | tar zxC /usr/local
-ENV NCARG_ROOT /usr/local
 #
 #
 # WRF and WPS, version given at the top of script
@@ -116,6 +105,19 @@ RUN ssh-keygen -f /WRF/.ssh/id_rsa -t rsa -N '' \
     && chmod 700 /WRF/.ssh \
     && cp /WRF/.ssh/id_rsa.pub /WRF/.ssh/authorized_keys
 #
+# Configure WRF with options 34 (dmpar) and 1 (basic nesting)
+# Then compile em_real
+RUN cd WRF \
+    && export NETCDF=/WRF/netcdf_links \
+    && printf '34\n1\n' | ./configure \
+    && ./compile em_real  > /dev/null 2>&1
+#
+# Configure and compile WPS
+# Discard compile output since it reaches Docker's log limit
+RUN cd /WRF/WPS && ./clean -a \
+    && cd /WRF/WPS && export NETCDF=/WRF/netcdf_links && printf '1\n' | ./configure  \
+    && sed -i 's/-lnetcdf/-lnetcdff -lnetcdf/g' configure.wps \
+    && ./compile
 #
 CMD ["/bin/tcsh"]
 #
